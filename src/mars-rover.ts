@@ -11,10 +11,21 @@ export class MarsRover {
   private direction: Direction = Direction.North;
 
   public execute(command: string): string {
-    if (command === "R") {
-      if (this.direction === Direction.North) this.direction = Direction.East;
-    }
+    const commands = command.split("");
+    commands.forEach(c => {
+      if (c === "R") {
+        this.rotateRight();
+      }
+    });
 
     return `${this.x}:${this.y}:${this.direction}`;
+  }
+
+  private rotateRight()
+  {
+    if (this.direction === Direction.North) this.direction = Direction.East;
+    else if (this.direction === Direction.East) this.direction = Direction.South;
+    else if (this.direction === Direction.South) this.direction = Direction.West;
+    else if (this.direction === Direction.West) this.direction = Direction.North;
   }
 }
