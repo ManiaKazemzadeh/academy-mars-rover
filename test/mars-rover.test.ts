@@ -1,4 +1,4 @@
-import { MarsRover } from "../src/mars-rover";
+import { Application } from "./../src/application";
 
 // starting position is 0:0:N
 
@@ -15,9 +15,9 @@ describe("MarsRover", () => {
   `(
     "should rotate right towards $direction when receives $command",
     ({ command, expectedPosition }) => {
-      const marsRover = new MarsRover();
+      const app = new Application();
 
-      const position = marsRover.execute(command);
+      const position = app.execute(command);
 
       expect(position).toBe(expectedPosition);
     }
@@ -32,9 +32,9 @@ describe("MarsRover", () => {
   `(
     "should rotate left towards $direction when receives $command",
     ({ command, expectedPosition }) => {
-      const marsRover = new MarsRover();
+      const app = new Application();
 
-      const position = marsRover.execute(command);
+      const position = app.execute(command);
 
       expect(position).toBe(expectedPosition);
     }
@@ -51,9 +51,9 @@ describe("MarsRover", () => {
   `(
     "should move forward to $expectedPosition when receives $command",
     ({ command, expectedPosition }) => {
-      const marsRover = new MarsRover();
+      const app = new Application();
 
-      const position = marsRover.execute(command);
+      const position = app.execute(command);
 
       expect(position).toBe(expectedPosition);
     }
